@@ -117,7 +117,7 @@ class Template {
 			return value;
 		for( ctx in stack ) {
 			var v = Reflect.getProperty(ctx,v);
-			if( v != null || Reflect.hasField(ctx,v) )
+			if( v != null && Reflect.hasField(ctx,v) )
 				return v;
 		}
 		if( v == "__current__" )
