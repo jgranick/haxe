@@ -236,6 +236,10 @@ class CallStack {
 	**/
 	public static function toString( stack : Array<StackItem> ) {
 		var b = new StringBuf();
+		#if cpp
+		stack = stack.copy ();
+		stack.reverse();
+		#end
 		for( s in stack ) {
 			b.add("\nCalled from ");
 			itemToString(b,s);
